@@ -2,10 +2,26 @@
   display: block;
   width: 100px;
   height: 35px;
-  padding-top: 13px;
   text-align: center;
-  background-color: #90C09F;
   color: white;
-  border-radius: 25px;
   font-size: 17px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.button-wrapper[type=danger] {
+  background-color: rgb(209, 40, 40);
+}
+
+.button-wrapper[type=default] {
+  background-color: rgb(37, 141, 110);;
+}
+
+.button-wrapper[type=primary] {
+  background-color: rgb(30, 30, 189);
+}
+
+.button-wrapper[type=disabled] {
+  background: rgb(161, 149, 149);
 }
