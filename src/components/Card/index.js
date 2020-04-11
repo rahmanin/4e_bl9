@@ -1,5 +1,6 @@
 import React from "react";
-import Button from './Button';
+import Button from '../Button';
+import './index.scss';
 
 export default function Card(props) {
   return <div className="card-wrapper">

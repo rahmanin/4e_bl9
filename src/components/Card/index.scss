@@ -1,0 +1,15 @@
+.card-wrapper {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+  align-items: center;
+}
+
+.card-image {
+  height: 150px;
+  width: inherit;
+  background-image: url(https://imageskincare.ru/images/Image_Skincare_logo_no_bar_no_slogan-01.png);
+  background-size: 100% 100%;
+}
