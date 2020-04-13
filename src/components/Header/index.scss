@@ -1,4 +1,4 @@
-.header-wrapper {
+.header {
   background-color: rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 60px;
@@ -6,11 +6,15 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  &:hover {
+    background-color: rgba(22, 22, 22, 0.7);
+    transition: 0.4s;
+  }
+  .logo {
+    height: inherit;
+    width: 220px;
+    background-image: url(https://cannabisone.life/wp-content/uploads/2018/09/CANNABIS_ONE_Logo_White-for-site.png);
+    background-size: 100% 100%;
+  }
 }
 
-.logo {
-  height: inherit;
-  width: 220px;
-  background-image: url(https://cannabisone.life/wp-content/uploads/2018/09/CANNABIS_ONE_Logo_White-for-site.png);
-  background-size: 100% 100%;
-}

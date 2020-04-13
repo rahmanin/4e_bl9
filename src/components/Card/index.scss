@@ -1,19 +1,18 @@
-.card-wrapper {
+.card {
   width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 440px;
   align-items: center;
+  .image {
+    height: 150px;
+    width: inherit;
+    background-size: 100% 100%;
+  }
+  .title, .text {
+    color: white;
+    text-align: center;
+  }
 }
 
-.card-image {
-  height: 150px;
-  width: inherit;
-  background-size: 100% 100%;
-}
-
-p, h2 {
-  color: white;
-  text-align: center;
-}
