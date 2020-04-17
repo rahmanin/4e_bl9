@@ -1,19 +1,31 @@
 import React from 'react';
-import Header from './components/Header/'
-import Content from './components/Content/'
-import Card from './components/Card/'
+import Header from './components/Header/';
+import Content from './components/Content/';
+import MainList from './containers/MainList';
+import SingleItem from './containers/SingleItem';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import { routes } from "./constants/routes";
 
 import './App.scss';
 
 export default function App() {
   return (
     <div>
-      <Header />
-      <Content>
-        <Card title="Title 1" cardImage="https://image.flaticon.com/icons/svg/1168/1168073.svg"/>
-        <Card title="Title 2" cardImage="https://image.flaticon.com/icons/svg/2533/2533433.svg"/>
-        <Card title="Title 3" cardImage="https://image.flaticon.com/icons/svg/2782/2782463.svg"/>
-      </Content>
+      <Router>
+        <Header />
+        <Content>
+          <Switch>
+            <Redirect exact from="/" to={routes.items.index} />
+            <Route path={routes.items.index} exact component={MainList}/>
+            <Route path={routes.items.item} exact component={SingleItem}/>
+          </Switch>
+        </Content>
+      </Router>
     </div>
   );
 }

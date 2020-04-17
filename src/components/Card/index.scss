@@ -2,17 +2,32 @@
   width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 440px;
+  justify-content: space-around;
+  height: 300px;
   align-items: center;
+  border: 1px solid white;
+  margin: 10px;
   .image {
     height: 150px;
     width: inherit;
     background-size: 100% 100%;
   }
-  .title, .text {
+  .text {
     color: white;
     text-align: center;
+    &.lbs {
+      border-left: 1px solid white;
+      padding: 5px;
+    }
+    &.port {
+      font-size: 12px;
+    }
+  }
+  .info_wrapper {
+    display: flex;
+    width:inherit;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 
