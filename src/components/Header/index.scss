@@ -6,16 +6,16 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
-  &:hover {
-    background-color: rgba(22, 22, 22, 0.7);
-    transition: 0.4s;
-  }
-  .logo {
-    margin-left: 5px;
-    height: 31px;
-    width: 151px;
-    background-image: url(https://www.marinetraffic.com/img/LogoDesktop.png);
-    background-size: 100% 100%;
-  }
+    &:hover {
+      background-color: rgba(22, 22, 22, 0.7);
+      transition: 0.4s;
+    }
+    .logo {
+      margin-left: 5px;
+      height: 31px;
+      width: 151px;
+      background-image: url(https://www.marinetraffic.com/img/LogoDesktop.png);
+      background-size: 100% 100%;
+    }
 }
 

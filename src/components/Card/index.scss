@@ -7,27 +7,27 @@
   align-items: center;
   border: 1px solid white;
   margin: 10px;
-  .image {
-    height: 150px;
-    width: inherit;
-    background-size: 100% 100%;
-  }
-  .text {
-    color: white;
-    text-align: center;
-    &.lbs {
-      border-left: 1px solid white;
-      padding: 5px;
+    .image {
+      height: 150px;
+      width: inherit;
+      background-size: 100% 100%;
     }
-    &.port {
-      font-size: 12px;
+    .text {
+      color: white;
+      text-align: center;
+        &.lbs {
+          border-left: 1px solid white;
+          padding: 5px;
+        }
+        &.port {
+          font-size: 12px;
+        }
     }
-  }
-  .info_wrapper {
-    display: flex;
-    width:inherit;
-    justify-content: space-around;
-    align-items: center;
-  }
+    .info_wrapper {
+      display: flex;
+      width:inherit;
+      justify-content: space-around;
+      align-items: center;
+    }
 }
 

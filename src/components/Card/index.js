@@ -1,5 +1,6 @@
 import React from "react";
 import Button from '../Button';
+import {Link} from 'react-router-dom';
 
 import './index.scss';
 
@@ -11,13 +12,13 @@ export default function Card({title, cardImage, text, additional_1, additional_2
     <div className="info_wrapper">
       <h2 className="text">{additional_1}</h2>
       <p className="text lbs">{additional_2}</p>
-      <a href={path}>
+      <Link to={path}>
         <Button 
           title={button_title}
           type="button"
           color={btn_color}
         />
-      </a>
+      </Link>
     </div>
   </div>
 }

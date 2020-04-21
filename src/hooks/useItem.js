@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 
-export const useItem = ship_id => {
+export const useItem = shipId => {
   const [item, setItem] = useState(null);
 
   useEffect(() => {
-    fetch(`https://api.spacexdata.com/v3/ships/${ship_id}`)
+    fetch(`https://api.spacexdata.com/v3/ships/${shipId}`)
       .then(response => response.json())
       .then(item => {
         setItem(item);
       });
-  }, [ship_id]);
+  }, [shipId]);
 
   return {
     item

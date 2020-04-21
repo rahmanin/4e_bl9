@@ -6,20 +6,20 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  .circle {
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    &.c_1 {
-      animation: cirlce-1 1.2s infinite;
+    .circle {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+        &.c_1 {
+          animation: cirlce-1 1.2s infinite;
+        }
+        &.c_2 {
+          animation: cirlce-2 1.2s infinite;
+        }
+        &.c_3{
+          animation: cirlce-3 1.2s infinite;
+        }
     }
-    &.c_2 {
-      animation: cirlce-2 1.2s infinite;
-    }
-    &.c_3{
-      animation: cirlce-3 1.2s infinite;
-    }
-  }
 }
 
 @keyframes cirlce-1 {

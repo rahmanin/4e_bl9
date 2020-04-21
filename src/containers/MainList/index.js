@@ -1,6 +1,6 @@
 import React from "react";
 import Card from '../../components/Card';
-import IsLoading from '../../components/IsLoading';
+import Loader from '../../components/Loader';
 import { useData } from "../../hooks/useData";
 import { routes } from "../../constants/routes";
 
@@ -8,17 +8,17 @@ export default function MainList() {
   
   const {data} = useData();
 
-  if (!data.length) return <IsLoading />;
+  if (!data.length) return <Loader />;
 
-  return data.map(i => (
+  return data.map(item => (
     <Card 
-      key={i.ship_id}
-      title={i.ship_name}
-      cardImage={!i.image ? 'https://metalworking-expo.com/upload/medialibrary/d27/blank.png' : i.image}
-      text={`Home port: ${i.home_port}`}
-      additional_1={!i.year_built ? 'N/A' : i.year_built}
-      additional_2={!i.weight_lbs ? 'Lbs unknown' : `${i.weight_lbs} lbs`}
-      path={`${routes.items.index}/${i.ship_id}`}
+      key={item.ship_id}
+      title={item.ship_name}
+      cardImage={!item.image ? 'https://metalworking-expo.com/upload/medialibrary/d27/blank.png' : item.image}
+      text={`Home port: ${item.home_port}`}
+      additional_1={!item.year_built ? 'N/A' : item.year_built}
+      additional_2={!item.weight_lbs ? 'Lbs unknown' : `${item.weight_lbs} lbs`}
+      path={`${routes.items.index}/${item.ship_id}`}
       button_title='See more'
       btn_color='default'
     />

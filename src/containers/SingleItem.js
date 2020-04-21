@@ -1,6 +1,6 @@
 import React from "react";
-import CardBig from '../components/CardBig';
-import IsLoading from '../components/IsLoading';
+import MainCard from '../components/MainCard';
+import Loader from '../components/Loader';
 import { useItem } from "../hooks/useItem";
 import { useParams } from "react-router-dom";
 import { routes } from "../constants/routes";
@@ -10,9 +10,9 @@ export default function SingleItem() {
   
   const {ship_id} = useParams();
   const {item} = useItem(ship_id);
-  if (!item) return <IsLoading />;
+  if (!item) return <Loader />;
   
-  return <CardBig 
+  return <MainCard 
     key={item.ship_id}
     title={item.ship_name}
     cardImage={!item.image ? 'https://metalworking-expo.com/upload/medialibrary/d27/blank.png' : item.image}

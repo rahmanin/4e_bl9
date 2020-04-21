@@ -1,9 +1,10 @@
 import React from "react";
 import Button from '../Button';
+import {Link} from 'react-router-dom';
 
 import './index.scss';
 
-export default function CardBig({title, cardImage, path, button_title, btn_color, ship_type, weight_lbs, weight_kg, year_built, home_port, speed_kn, url, url_title, url_color}) {
+export default function MainCard({title, cardImage, path, button_title, btn_color, ship_type, weight_lbs, weight_kg, year_built, home_port, speed_kn, url, url_title, url_color}) {
   return <div className="big_card">
     <h2 className="text">{title}</h2>
     <img className="image" src={cardImage} alt=""/>
@@ -36,13 +37,13 @@ export default function CardBig({title, cardImage, path, button_title, btn_color
         </tbody>
     </table>
     <div className="btn_wrapper">
-      <a href={path}>
+      <Link to={path}>
         <Button
           title={button_title}
           type="button"
           color={btn_color}
         />
-      </a>
+      </Link>
       <a href={url}>
         <Button
           title={url_title}

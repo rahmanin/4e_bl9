@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './components/Header/';
-import Content from './components/Content/';
+import Header from './components/Header';
+import Content from './components/Content';
 import MainList from './containers/MainList';
 import SingleItem from './containers/SingleItem';
 import {
@@ -14,6 +14,7 @@ import { routes } from "./constants/routes";
 import './App.scss';
 
 export default function App() {
+  const {index, item} = routes.items;
   return (
     <div>
       <Router>
@@ -21,8 +22,8 @@ export default function App() {
         <Content>
           <Switch>
             <Redirect exact from="/" to={routes.items.index} />
-            <Route path={routes.items.index} exact component={MainList}/>
-            <Route path={routes.items.item} exact component={SingleItem}/>
+            <Route path={index} exact component={MainList}/>
+            <Route path={item} exact component={SingleItem}/>
           </Switch>
         </Content>
       </Router>
