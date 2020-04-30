@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './components/Header';
 import Content from './components/Content';
-import MainList from './containers/MainList';
-import SingleItem from './containers/SingleItem';
+import MainList from './routes/MainList';
+import SingleItem from './routes/SingleItem';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,13 +10,15 @@ import {
   Redirect
 } from "react-router-dom";
 import { routes } from "./constants/routes";
+import FavoritesProvider from "./providers/FavouritesProvider";
+import FavouritesList from "./routes/FavouritesList"
 
 import './App.scss';
 
 export default function App() {
-  const {index, item} = routes.items;
+  const {index, item, favs} = routes.items;
   return (
-    <div>
+    <FavoritesProvider>
       <Router>
         <Header />
         <Content>
@@ -24,9 +26,10 @@ export default function App() {
             <Redirect exact from="/" to={routes.items.index} />
             <Route path={index} exact component={MainList}/>
             <Route path={item} exact component={SingleItem}/>
+            <Route path={favs} exact component={FavouritesList}/>
           </Switch>
         </Content>
       </Router>
-    </div>
+    </FavoritesProvider>
   );
 }

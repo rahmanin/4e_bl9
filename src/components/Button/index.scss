@@ -5,12 +5,15 @@
   text-align: center;
   color: white;
   font-size: 17px;
-  border: none;
+  border: 1px solid white;
   cursor: pointer;
     &--default {
       background-color: rgb(37, 141, 110);;
     }
-    &--danger {
+    &--fav1 {
+      background-color: rgb(209, 141, 40);
+    }
+    &--fav2 {
       background-color: rgb(209, 40, 40);
     }
     &--primary {

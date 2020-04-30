@@ -1,10 +1,10 @@
 import React from "react";
-import Card from '../../components/Card';
-import Loader from '../../components/Loader';
-import { useData } from "../../hooks/useData";
-import { routes } from "../../constants/routes";
+import Card from '../components/Card';
+import Loader from '../components/Loader';
+import { routes } from "../constants/routes";
+import { useData } from "../hooks/useData";
 
-export default function MainList() {
+export default function MainList(id) {
   
   const {data} = useData();
 
