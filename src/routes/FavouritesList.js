@@ -2,17 +2,19 @@ import React, { useContext }  from "react";
 import Card from '../components/Card';
 import Loader from '../components/Loader';
 import { routes } from "../constants/routes";
-import { FavoritesContext } from "../providers/FavouritesProvider";
+import {useDispatch} from "react-redux";
+import { removeFromFavs } from "../store/favs/actions";
+import { favsList } from '../store/selectors';
+import { useSelector } from "react-redux";
 
 export default function FavouritesList() {
   
-  const { favorites, deleteFromFavorites } = useContext(
-    FavoritesContext
-  );
+  const dispatch = useDispatch();
+  const favourites = useSelector(favsList);
 
-  if (!favorites.length) return <Loader />;
+  if (!favourites.length) return <Loader />;
 
-  return favorites.map(item => (
+  return favourites.map(item => (
     <Card 
       key={item.ship_id}
       title={item.ship_name}
@@ -24,7 +26,7 @@ export default function FavouritesList() {
       button_title='See more'
       btn_color='default'
       favTitle={"Remove"}
-      favOnClick={() => deleteFromFavorites(item)}
+      favOnClick={() => dispatch(removeFromFavs(item))}
       favColor={"fav2"}
     />
   ))

@@ -3,14 +3,14 @@ import User from "../User";
 import {Link} from 'react-router-dom';
 import { routes } from "../../constants/routes";
 import Button from '../Button';
-import { FavoritesContext } from "../../providers/FavouritesProvider";
+import { favsList } from '../../store/selectors';
+import { useSelector } from "react-redux";
 
 import './index.scss';
 
 export default function Header() {
-
-  const {favorites} = useContext(FavoritesContext);
-  const quantity = favorites.length;
+  const favourites = useSelector(favsList);
+  const quantity = favourites.length;
 
   return <div className="header">
     <Link to={routes.items.index}>

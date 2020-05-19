@@ -1,24 +1,28 @@
-import React, { useContext }  from "react";
+import React  from "react";
 import Card from '../components/Card';
 import Loader from '../components/Loader';
 import { routes } from "../constants/routes";
 import { useData } from "../hooks/useData";
-import { FavoritesContext } from "../providers/FavouritesProvider";
+import {useDispatch} from "react-redux";
+import { addToFavs, removeFromFavs} from "../store/favs/actions";
+import { favsList } from '../store/selectors';
+import { useSelector } from "react-redux";
 
 export default function MainList() {
   
-  const { favorites, addToFavorites, deleteFromFavorites } = useContext(
-    FavoritesContext
-  );
+  const dispatch = useDispatch();
+  const favourites = useSelector(favsList);
 
   const isFafourite = item => {
-    return favorites.some(element => element.ship_id === item.ship_id);
+    return favourites.some(element => element.ship_id === item.ship_id);
   }
+  
   
   const {data} = useData();
 
   const handleClick = (item) => {
-    return isFafourite(item) ? deleteFromFavorites(item) : addToFavorites(item);
+    console.log("isFav", isFafourite(item));
+    return isFafourite(item) ? dispatch(removeFromFavs(item)) : dispatch(addToFavs(item));
   } 
 
   if (!data.length) return <Loader />;

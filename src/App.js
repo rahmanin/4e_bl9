@@ -10,7 +10,6 @@ import {
   Redirect
 } from "react-router-dom";
 import { routes } from "./constants/routes";
-import FavoritesProvider from "./providers/FavouritesProvider";
 import FavouritesList from "./routes/FavouritesList"
 
 import './App.scss';
@@ -18,7 +17,6 @@ import './App.scss';
 export default function App() {
   const {index, item, favs} = routes.items;
   return (
-    <FavoritesProvider>
       <Router>
         <Header />
         <Content>
@@ -30,6 +28,5 @@ export default function App() {
           </Switch>
         </Content>
       </Router>
-    </FavoritesProvider>
   );
 }
