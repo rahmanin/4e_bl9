@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useContext }  from "react";
 import Card from '../components/Card';
 import Loader from '../components/Loader';
 import { routes } from "../constants/routes";
 import { useData } from "../hooks/useData";
+import { FavoritesContext } from "../providers/FavouritesProvider";
 
-export default function MainList(id) {
+export default function MainList() {
+  
+  const { favorites, addToFavorites, deleteFromFavorites } = useContext(
+    FavoritesContext
+  );
+
+  const isFafourite = item => {
+    return favorites.some(element => element.ship_id === item.ship_id);
+  }
   
   const {data} = useData();
+
+  const handleClick = (item) => {
+    return isFafourite(item) ? deleteFromFavorites(item) : addToFavorites(item);
+  } 
 
   if (!data.length) return <Loader />;
 
@@ -21,6 +34,9 @@ export default function MainList(id) {
       path={`${routes.items.index}/${item.ship_id}`}
       button_title='See more'
       btn_color='default'
+      favTitle={isFafourite(item) ? "Remove" :  "Add to favs"}
+      favOnClick={() => handleClick(item)}
+      favColor={isFafourite(item) ? "fav2" : "fav1"}
     />
   ))
 }

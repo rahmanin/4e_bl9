@@ -1,15 +1,31 @@
-// import React, { useContext } from "react";
-// import { MovieContext } from "../providers/MovieProvider";
-// import { FavoritesContext } from "../providers/FavoritesProvider";
-// import MovieList from "../containers/MovieList";
-// import MovieSpin from "../ui/MovieSpin";
+import React, { useContext }  from "react";
+import Card from '../components/Card';
+import Loader from '../components/Loader';
+import { routes } from "../constants/routes";
+import { FavoritesContext } from "../providers/FavouritesProvider";
 
-// export default function FavoritesRoute() {
-//   const { loadingMovies, movies } = useContext(MovieContext);
-//   const { favorites } = useContext(FavoritesContext);
-//   const favoriteMovies = movies.filter(movie => favorites.has(movie.id));
+export default function FavouritesList() {
+  
+  const { favorites, deleteFromFavorites } = useContext(
+    FavoritesContext
+  );
 
-//   if (loadingMovies) return <MovieSpin />;
+  if (!favorites.length) return <Loader />;
 
-//   return <MovieList movies={favoriteMovies} />;
-// }
+  return favorites.map(item => (
+    <Card 
+      key={item.ship_id}
+      title={item.ship_name}
+      cardImage={!item.image ? 'https://metalworking-expo.com/upload/medialibrary/d27/blank.png' : item.image}
+      text={`Home port: ${item.home_port}`}
+      additional_1={!item.year_built ? 'N/A' : item.year_built}
+      additional_2={!item.weight_lbs ? 'Lbs unknown' : `${item.weight_lbs} lbs`}
+      path={`${routes.items.index}/${item.ship_id}`}
+      button_title='See more'
+      btn_color='default'
+      favTitle={"Remove"}
+      favOnClick={() => deleteFromFavorites(item)}
+      favColor={"fav2"}
+    />
+  ))
+}
